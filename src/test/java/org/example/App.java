@@ -61,6 +61,11 @@ public class App {
             Movie movieToRemove = actorClean.getMovies().get(0);
             actorClean.getMovies().remove(0);
             movieToRemove.getActors().remove(actorClean);
+
+            session.getTransaction().commit();
+
+        } finally {
+            sessionFactory.close();
         }
     }
 }
